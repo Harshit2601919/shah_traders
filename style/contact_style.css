@@ -1,27 +1,32 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f8f9fa;
+  background-image: linear-gradient(rgb(202, 198, 251) 0.20%, rgb(234, 235, 247));
 }
 
 /* Navigation */
 .navbar {
-  background-color: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease-in-out;
+  background-color: #B2A5FF;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  padding-bottom: 15px;
+  color: black;
+  overflow: hidden;
+  border-radius: 5px;
+
 }
 
 .navbar-brand {
   font-weight: 600;
   font-size: 1.5rem;
-  color: #333;
+  color: black;
 }
 
 .nav-link {
-  color: #333;
+  color: black;
   font-weight: 500;
+  font-size: 1.2rem;
   margin-left: 20px;
 }
-
 /* Headings */
 h1, h2 {
   color: #0d6efd;
@@ -31,12 +36,13 @@ h1, h2 {
 h1 {
   font-size: 2.7rem;
   font-weight: 700;
+  margin-top: 100px;
 }
 
 h2 {
   font-size: 2rem;
   font-weight: 600;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 /* Contact Information Section */

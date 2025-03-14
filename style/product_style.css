@@ -1,23 +1,29 @@
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f8f9fa;
+  background-image: linear-gradient(rgb(202, 198, 251) 0.20%, rgb(234, 235, 247));
 }
 
 /* Navigation */
 .navbar {
-  background-color: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  background-color: #B2A5FF;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  padding-bottom: 15px;
+  color: black;
+  overflow: hidden;
+  border-radius: 5px;
 }
 
 .navbar-brand {
   font-weight: 600;
   font-size: 1.5rem;
-  color: #333;
+  color: black;
 }
 
 .nav-link {
-  color: #333;
+  color: black;
   font-weight: 500;
+  font-size: 1.2rem;
   margin-left: 20px;
 }
 
@@ -58,11 +64,17 @@ body {
 .search-box {
   margin-bottom: 30px;
 }
-
+.search-box input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+}
 .product-card {
-  background-color: white;
+  background-color: whitesmoke;
   border-radius: 8px;
   overflow: hidden;
+  border: 0.5px solid #b7acf7;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
   height: 100%;
   transition: transform 0.3s ease;
@@ -102,8 +114,8 @@ body {
 
 /* Footer */
 footer {
-  background-color: #212529;
-  color: white;
+  background-color: whitesmoke;
+  color: black;
   padding: 50px 0;
   margin-top: 50px;
 }
@@ -115,7 +127,7 @@ footer {
 }
 
 .footer-text {
-  color: #adb5bd;
+  color: black;
   margin-bottom: 2rem;
 }
 
@@ -127,17 +139,17 @@ footer {
 
 .footer-link {
   display: block;
-  color: #adb5bd;
+  color: black;
   margin-bottom: 0.75rem;
   text-decoration: none;
 }
 
 .footer-link:hover {
-  color: white;
+  color: blue;
 }
 
 .contact-info {
-  color: #adb5bd;
+  color: black;
   margin-bottom: 0.75rem;
 }
 

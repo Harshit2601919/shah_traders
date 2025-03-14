@@ -4,24 +4,31 @@ body {
 
 /* Navigation */
 .navbar {
-  background-color: white;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  background-color: #B2A5FF;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  padding-bottom: 15px;
+  color: black;
+  overflow: hidden;
+  border-radius: 5px;
+
 }
+
 
 .navbar-brand {
   font-weight: 600;
   font-size: 1.5rem;
-  color: #333;
+  color: black;
 }
 
 .nav-link {
-  color: #333;
+  color: black;
   font-weight: 500;
+  font-size: 1.2rem;
   margin-left: 20px;
 }
 
 /* Hero Section */
-.hero-section {
+/* .hero-section {
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1600/800');
   background-size: cover;
   background-position: center;
@@ -30,27 +37,50 @@ body {
   display: flex;
   align-items: center;
   padding: 60px 0;
-}
+} */
 
 .hero-content {
-  max-width: 800px;
+  max-width: 100%;
+  text-align: center;
+
 }
 
 .hero-title {
-  font-size: 3.5rem;
+  margin-top: 100px;
+  font-size: 3rem;
   font-weight: 700;
   margin-bottom: 1rem;
 }
 
 .hero-subtitle {
   font-size: 1.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+}
+
+
+/* Coursel */
+
+
+.carousel-item {
+  background-size:cover;
+  padding: 25px;
+
+}
+
+.carousel-item img {
+  height: 800px;
+  width: 100%;
+  object-fit: fill;
+  object-position: center;
+  border-radius: 20px;
+
 }
 
 /* Featured Categories */
 .featured-section {
-  padding: 80px 0;
+  padding: 50px 0;
   background-color: #f8f9fa;
+  background-image: linear-gradient(rgb(202, 198, 251) 0.20%, rgb(234, 235, 247));
 }
 
 .section-title {
@@ -67,16 +97,18 @@ body {
   box-shadow: 0 5px 15px rgba(0,0,0,0.08);
   height: 100%;
   transition: transform 0.3s ease;
+  
 }
 
 .category-card:hover {
   transform: translateY(-10px);
+  box-shadow: #6c757d 0px 15px 20px -10px;
 }
 
 .category-img {
-  height: 200px;
+  height: 250px;
   width: 100%;
-  object-fit: cover;
+  object-fit:fill;
 }
 
 .category-content {
@@ -108,8 +140,8 @@ body {
 
 /* Footer */
 footer {
-  background-color: #212529;
-  color: white;
+  background-color:rgb(253, 247, 247);
+  color: black;
   padding: 50px 0;
 }
 
@@ -120,7 +152,7 @@ footer {
 }
 
 .footer-text {
-  color: #adb5bd;
+  color: black;
   margin-bottom: 2rem;
 }
 
@@ -132,16 +164,17 @@ footer {
 
 .footer-link {
   display: block;
-  color: #adb5bd;
+  color: black;
   margin-bottom: 0.75rem;
   text-decoration: none;
 }
 
 .footer-link:hover {
-  color: white;
+  color: #0d6efd;
 }
 
 .contact-info {
-  color: #adb5bd;
+  color: black;
   margin-bottom: 0.75rem;
 }
+

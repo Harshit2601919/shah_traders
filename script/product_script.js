@@ -4,7 +4,7 @@ const products = [
     name: "Industrial Mixer Pro 3000",
     category: "MultiMix/Jar",
     price: 1299.99,
-    image: "https://via.placeholder.com/400x300",
+    image: "images/mixer.png",
     description:
       "Professional-grade industrial mixer with variable speed control",
     detailedDescription:
@@ -22,7 +22,7 @@ const products = [
     name: "Heavy Duty Storage Jar",
     category: "MultiMix/Jar",
     price: 199.99,
-    image: "https://via.placeholder.com/400x300",
+    image: "images/jars.png",
     description: "20L capacity industrial storage jar with airtight seal",
     detailedDescription:
       "Our Heavy Duty Storage Jar is perfect for storing and processing materials safely. Made from high-quality materials, this jar features an airtight seal to preserve your contents.",
@@ -39,7 +39,7 @@ const products = [
     name: "Mixer Blade Assembly",
     category: "Blade",
     price: 149.99,
-    image: "https://via.placeholder.com/400x300",
+    image: "images/blades.png",
     description:
       "Replacement blade assembly for Industrial Mixer Pro series",
     detailedDescription:
@@ -57,7 +57,7 @@ const products = [
     name: "Juicer",
     category: "Juicer",
     price: 799.99,
-    image: "https://via.placeholder.com/400x300",
+    image: "images/juicer.png",
     description: "Compact industrial mixer for small to medium batches",
     detailedDescription:
       "The Compact Mixer X1 offers professional mixing capabilities in a smaller footprint. Perfect for laboratories, small businesses, or any application where space is at a premium.",
@@ -74,7 +74,7 @@ const products = [
     name: "blender op",
     category: "Blender",
     price: 799.99,
-    image: "https://via.placeholder.com/400x300",
+    image: "/images/blender.png",
     description: "Compact industrial mixer for small to medium batches",
     detailedDescription:
       "The Compact Mixer X1 offers professional mixing capabilities in a smaller footprint. Perfect for laboratories, small businesses, or any application where space is at a premium.",
