@@ -8,17 +8,27 @@ body {
 
 /* Navigation */
 .navbar {
+<<<<<<< HEAD
 background-color: #B2A5FF;
 box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 padding-bottom: 15px;
 color: black;
 overflow: hidden;
 border-radius: 5px;
+=======
+  background-color: #B2A5FF;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  padding-bottom: 15px;
+  color: black;
+  overflow: hidden;
+  border-radius: 5px;
+>>>>>>> d04f2b9a094d17239eb01c4c9a509829e7978bcc
 
 }
 
 
 .navbar-brand {
+<<<<<<< HEAD
 font-weight: 600;
 font-size: 1.5rem;
 color: black;
@@ -29,6 +39,18 @@ color: black;
 font-weight: 500;
 font-size: 1.2rem;
 margin-left: 20px;
+=======
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: black;
+}
+
+.nav-link {
+  color: black;
+  font-weight: 500;
+  font-size: 1.2rem;
+  margin-left: 20px;
+>>>>>>> d04f2b9a094d17239eb01c4c9a509829e7978bcc
 }
 
 .hero-section {
