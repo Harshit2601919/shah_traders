@@ -49,9 +49,31 @@
         <h1>Contact Us</h1>
         <div class="contact-info">
             <h2>Get in Touch</h2>
-            <p><strong>Address:</strong> 123 Industrial Avenue, Tech City, TC 12345</p>
-            <p><strong>Phone:</strong> <a href="tel:+9987847695">(+91)9987847695</a></p>
-            <p><strong>Email:</strong> <a href="mailto:info@techparts.com">info@techparts.com</a></p>
+            
+            <div class="contact-detail">
+                <i class="fas fa-map-marker-alt"></i>
+                <span id="address">123 Industrial Avenue, Tech City, TC 12345</span>
+                <button class="copy-btn" onclick="copyToClipboard('address')">
+                    <i class="fas fa-copy"></i> Copy
+                </button>
+            </div>
+            
+            <div class="contact-detail">
+                <i class="fas fa-phone"></i>
+                <a href="tel:+919987847695" id="phone">(+91)9987847695</a>
+                <button class="copy-btn" onclick="copyToClipboard('phone')">
+                    <i class="fas fa-copy"></i> Copy
+                </button>
+            </div>
+            
+            <div class="contact-detail">
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:info@techparts.com" id="email">info@techparts.com</a>
+                <button class="copy-btn" onclick="copyToClipboard('email')">
+                    <i class="fas fa-copy"></i> Copy
+                </button>
+            </div>
+            
             <a href="https://wa.me/9987847695" class="whatsapp-link" target="_blank">
                 <i class="fab fa-whatsapp"></i> Chat with us on WhatsApp
             </a>
@@ -59,66 +81,153 @@
 
         <div class="business-hours">
             <h2>Business Hours</h2>
-            <p>Monday - Saturday: 10:00 AM - 9:00 PM</p>
-            <p>Sunday: Closed</p>
+            <div class="contact-detail">
+                <i class="fas fa-clock"></i>
+                <span>Monday - Saturday: 10:00 AM - 9:00 PM</span>
+            </div>
+            <div class="contact-detail">
+                <i class="fas fa-ban"></i>
+                <span>Sunday: Closed</span>
+            </div>
         </div>
 
-        <!-- Visiting Card Section -->
+        <!-- Visiting Card Section with Flip Animation -->
         <div class="visiting-card">
             <h2>Visiting Card</h2>
-            <img src="OUTPUT.png" alt="Visiting Card" id="visitingCardImg">
-        </div>
-
-        <!-- Modal for Enlarged Visiting Card -->
-        <div id="visitingCardModal" class="modal">
-            <span class="close">&times;</span>
-            <img class="modal-content" id="enlargedImg">
-            <button class="download-btn" id="downloadBtn">Download Visiting Card</button>
+            <div class="card-container" id="cardContainer">
+                <div class="card-front">
+                    <img src="OUTPUT.png" alt="Visiting Card Front" id="visitingCardImg">
+                </div>
+                <div class="card-back">
+                    <h3>TechParts</h3>
+                    <p>Your trusted partner for all technical parts</p>
+                    <div>
+                        <p><i class="fas fa-phone"></i> (+91)9987847695</p>
+                        <p><i class="fas fa-envelope"></i> info@techparts.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-instruction">
+                <i class="fas fa-redo"></i> Click card to flip
+            </div>
+            <div class="card-actions">
+                <button class="card-btn" id="downloadImgBtn">
+                    <i class="fas fa-image"></i> Download Image
+                </button>
+                <button class="card-btn" id="downloadVcardBtn">
+                    <i class="fas fa-address-card"></i> Download vCard
+                </button>
+            </div>
         </div>
     </div>
 
+    <!-- Toast notification container -->
+    <div class="toast-container" id="toastContainer"></div>
     
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script >
-         // JavaScript for Visiting Card Modal
- const visitingCardImg = document.getElementById('visitingCardImg');
- const modal = document.getElementById('visitingCardModal');
- const enlargedImg = document.getElementById('enlargedImg');
- const closeBtn = document.querySelector('.close');
- const downloadBtn = document.getElementById('downloadBtn');
-
- // Open modal when visiting card image is clicked
- visitingCardImg.onclick = function() {
-     modal.style.display = 'block';
-     enlargedImg.src = this.src;
- };
-
- // Close modal when close button is clicked
- closeBtn.onclick = function() {
-     modal.style.display = 'none';
- };
-
- // Close modal when clicking outside the image
- window.onclick = function(event) {
-     if (event.target === modal) {
-         modal.style.display = 'none';
-     }
- };
-
- // Download visiting card when download button is clicked
- downloadBtn.onclick = function() {
-     const link = document.createElement('a');
-     link.href = visitingCardImg.src;
-     link.download = 'OUTPUT.png';
-     document.body.appendChild(link);
-     link.click();
-     document.body.removeChild(link);
- };
+    <script>
+        // Function to copy text to clipboard
+        function copyToClipboard(elementId) {
+            const element = document.getElementById(elementId);
+            const text = element.textContent || element.innerText;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                // Visual feedback for successful copy
+                const button = event.currentTarget;
+                button.classList.add('copy-success');
+                button.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                
+                // Show toast notification
+                showToast('Copied to clipboard!');
+                
+                // Reset button after 2 seconds
+                setTimeout(() => {
+                    button.classList.remove('copy-success');
+                    button.innerHTML = '<i class="fas fa-copy"></i> Copy';
+                }, 2000);
+            }).catch(err => {
+                console.error('Could not copy text: ', err);
+                showToast('Failed to copy text');
+            });
+        }
+        
+        // Function to show toast notification
+        function showToast(message) {
+            const toastContainer = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.textContent = message;
+            
+            toastContainer.appendChild(toast);
+            
+            // Trigger reflow
+            toast.offsetHeight;
+            
+            // Show the toast
+            toast.classList.add('show');
+            
+            // Remove the toast after 3 seconds
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => {
+                    toastContainer.removeChild(toast);
+                }, 300);
+            }, 3000);
+        }
+        
+        // Flip card functionality
+        const cardContainer = document.getElementById('cardContainer');
+        cardContainer.addEventListener('click', function() {
+            this.classList.toggle('flipped');
+        });
+        
+        // Download image button functionality
+        const downloadImgBtn = document.getElementById('downloadImgBtn');
+        downloadImgBtn.addEventListener('click', function(e) {
+            e.stopPropagation(); // Prevent card from flipping when clicking button
+            
+            const link = document.createElement('a');
+            link.href = document.getElementById('visitingCardImg').src;
+            link.download = 'TechParts_BusinessCard.png';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            showToast('Image downloaded!');
+        });
+        
+        // Generate and download vCard
+        const downloadVcardBtn = document.getElementById('downloadVcardBtn');
+        downloadVcardBtn.addEventListener('click', function(e) {
+            e.stopPropagation(); // Prevent card from flipping when clicking button
+            
+            // Create vCard content
+            const vCardContent = 
+            `BEGIN:VCARD
+VERSION:3.0
+FN:TechParts
+ORG:TechParts
+TEL;TYPE=WORK,VOICE:+919987847695
+EMAIL:info@techparts.com
+ADR;TYPE=WORK:;;123 Industrial Avenue;Tech City;TC;12345;
+END:VCARD`;
+            
+            // Create a Blob with the vCard content
+            const blob = new Blob([vCardContent], { type: 'text/vcard' });
+            const url = URL.createObjectURL(blob);
+            
+            // Create a link and trigger download
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'TechParts.vcf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+            
+            showToast('vCard downloaded!');
+        });
     </script>
-
-    
 </body>
-
-
 </html>

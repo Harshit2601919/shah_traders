@@ -12,7 +12,6 @@ body {
   color: black;
   overflow: hidden;
   border-radius: 5px;
-
 }
 
 .navbar-brand {
@@ -27,6 +26,7 @@ body {
   font-size: 1.2rem;
   margin-left: 20px;
 }
+
 /* Headings */
 h1, h2 {
   color: #0d6efd;
@@ -46,7 +46,7 @@ h2 {
 }
 
 /* Contact Information Section */
-.contact-info, .business-hours, .message-form {
+.contact-info, .business-hours {
   background-color: white;
   padding: 25px;
   border-radius: 10px;
@@ -55,7 +55,7 @@ h2 {
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-.contact-info:hover, .business-hours:hover, .message-form:hover {
+.contact-info:hover, .business-hours:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
@@ -63,6 +63,8 @@ h2 {
 .contact-info p, .business-hours p {
   font-size: 1.1rem;
   transition: color 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
 }
 
 .contact-info a {
@@ -74,6 +76,40 @@ h2 {
 
 .contact-info a:hover {
   color: #084298;
+}
+
+.contact-detail {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.contact-detail i {
+  font-size: 1.2rem;
+  margin-right: 15px;
+  color: #0d6efd;
+  width: 20px;
+  text-align: center;
+}
+
+.copy-btn {
+  background-color: #f1f1f1;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.8rem;
+}
+
+.copy-btn:hover {
+  background-color: #e1e1e1;
+}
+
+.copy-success {
+  background-color: #28a745;
+  color: white;
 }
 
 .whatsapp-link {
@@ -96,78 +132,126 @@ h2 {
   margin-right: 10px;
 }
 
-/* Visiting Card Section */
+/* Flip Card */
 .visiting-card {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  perspective: 1000px;
 }
 
-.visiting-card img {
+.card-container {
   width: 300px;
-  height: auto;
-  border-radius: 10px;
+  height: 180px;
+  margin: 0 auto;
+  position: relative;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
   cursor: pointer;
-  transition: transform 0.3s ease-in-out;
 }
 
-.visiting-card img:hover {
-  transform: scale(1.1);
+.card-container.flipped {
+  transform: rotateY(180deg);
 }
 
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  padding-top: 60px;
-  left: 0;
-  top: 0;
+.card-front, .card-back {
+  position: absolute;
   width: 100%;
   height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.9);
-}
-
-.modal-content {
-  margin: auto;
-  display: block;
-  max-width: 80%;
-  max-height: 80%;
+  backface-visibility: hidden;
   border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
-.close {
-  position: absolute;
-  top: 20px;
-  right: 35px;
-  color: #fff;
-  font-size: 40px;
-  font-weight: bold;
-  transition: color 0.3s ease-in-out;
-  cursor: pointer;
+.card-front img, .card-back img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.close:hover {
-  color: #bbb;
+.card-back {
+  background-color: #0d6efd;
+  color: white;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
 
-.download-btn {
-  display: block;
-  margin: 20px auto;
+.card-actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.card-btn {
   background: linear-gradient(45deg, #0d6efd, #084298);
   color: white;
-  padding: 10px 20px;
+  padding: 10px 15px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 600;
   transition: all 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
 }
 
-.download-btn:hover {
+.card-btn i {
+  margin-right: 5px;
+}
+
+.card-btn:hover {
   background: linear-gradient(45deg, #084298, #062b6d);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.flip-instruction {
+  color: #6c757d;
+  font-size: 0.9rem;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flip-instruction i {
+  margin-right: 5px;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+/* Toast notification */
+.toast-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
+.toast {
+  background-color: #333;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 5px;
+  margin: 10px 0;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.toast.show {
+  opacity: 1;
 }
 
 /* Responsive Design */
@@ -184,7 +268,8 @@ h2 {
       font-size: 1rem;
   }
 
-  .visiting-card img {
-      width: 120px;
+  .card-container {
+      width: 280px;
+      height: 168px;
   }
 }
