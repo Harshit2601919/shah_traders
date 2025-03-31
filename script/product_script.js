@@ -4,7 +4,7 @@ const products = [
     name: "Industrial Mixer Pro 3000",
     category: "MultiMix/Jar",
     price: 1299.99,
-    image: "images/id1.jpeg",
+    image: "images/id11.jpeg",
     description:
       "Professional-grade industrial mixer with variable speed control",
     detailedDescription:
